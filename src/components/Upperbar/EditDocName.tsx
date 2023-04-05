@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Icon from "./Icon";
-import TextField from "./TextField";
-import Typography from "./Typography";
+import Icon from "../Icon";
+import TextField from "../TextField";
+import Typography from "../Typography";
 
 const EditDocName = () => {
   const [documentName, setDocumentName] = useState<string>("Document name");

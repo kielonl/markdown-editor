@@ -1,11 +1,21 @@
-import Button from "./Button";
+import Button from "../Button";
 import EditDocName from "./EditDocName";
-import Icon from "./Icon";
-import Typography from "./Typography";
+import Icon from "../Icon";
+import Typography from "../Typography";
+import { twMerge } from "tailwind-merge";
 
-const UpperBar = () => {
+interface UpperBarProps {
+  className?: string;
+}
+
+const UpperBar: React.FC<UpperBarProps> = ({ className }) => {
   return (
-    <div className="w-full h-20 bg-dark-800 flex flex-row items-center gap-2">
+    <div
+      className={twMerge(
+        "w-full h-20 bg-dark-800 flex flex-row items-center gap-2",
+        className
+      )}
+    >
       <Typography
         variant="headingM"
         className="text-white text-[15px] tracking-[5px] font-bold px-4"

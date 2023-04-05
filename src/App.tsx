@@ -1,9 +1,11 @@
-import UpperBar from "./components/UpperBar";
+import MainBoard from "./components/MainBoard/MainBoard";
+import UpperBar from "./components/Upperbar/UpperBar";
 
 const App = () => {
   return (
-    <div>
+    <div className="h-full w-full">
       <UpperBar />
+      <MainBoard />
     </div>
   );
 };
