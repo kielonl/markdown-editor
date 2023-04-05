@@ -17,6 +17,11 @@ export default {
         orange: "#E46643",
         "orange-hover": "#F39765",
       },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        robotoSlab: ["Roboto Slab", "serif"],
+        robotoMono: ["Roboto Mono", "monospace"],
+      },
     },
   },
   plugins: [],
