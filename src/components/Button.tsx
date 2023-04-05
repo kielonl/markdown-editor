@@ -5,6 +5,7 @@ interface ButtonProps
   > {
   className?: string;
   icon?: JSX.Element;
+  size?: string;
   children: React.ReactNode;
 }
 
@@ -12,12 +13,13 @@ const Button: React.FC<ButtonProps> = ({
   className,
   children,
   icon,
+  size = "px-8 py-1",
   ...props
 }) => {
   return (
     <button
       {...props}
-      className="bg-orange hover:bg-orange-hover px-8 py-1 rounded-[4px] flex flex-row gap-1 justify-center items-center"
+      className={`bg-orange hover:bg-orange-hover ${size} rounded-[4px] flex flex-row gap-1 justify-center items-center`}
     >
       {icon}
       {children}
