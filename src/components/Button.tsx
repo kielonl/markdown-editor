@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -19,7 +21,10 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       {...props}
-      className={`bg-orange hover:bg-orange-hover ${size} rounded-[4px] flex flex-row gap-1 justify-center items-center`}
+      className={twMerge(
+        `bg-orange hover:bg-orange-hover ${size} rounded-[4px] flex flex-row gap-1 justify-center items-center`,
+        className
+      )}
     >
       {icon}
       {children}

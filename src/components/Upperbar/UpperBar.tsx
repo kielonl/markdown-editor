@@ -16,17 +16,16 @@ const UpperBar: React.FC<UpperBarProps> = ({ className }) => {
         className
       )}
     >
-      <Typography
-        variant="headingM"
-        className="text-white text-[15px] tracking-[5px] font-bold px-4"
-      >
-        MARKDOWN
-      </Typography>
+      <Icon.Logo className="mx-4 hidden sm:block" />
       <EditDocName />
       <div className="flex-1"></div>
       <Icon.Delete />
-      <Button icon={<Icon.Save />} size={"px-3 py-1"}>
-        Save Changes
+      <Button
+        icon={<Icon.Save />}
+        size={"p-2 sm:px-3 sm:py-1"}
+        className="mx-2"
+      >
+        <div className="hidden sm:block">Save Changes</div>
       </Button>
     </div>
   );

@@ -18,11 +18,11 @@ const EditDocName = () => {
   };
 
   return (
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex flex-row items-center gap-2 m-2">
       <Icon.Document />
 
-      <div className="flex flex-col" onClick={() => setIsEditing(true)}>
-        <Typography variant="bodyS" className="text-dark-500">
+      <div className="flex flex-col " onClick={() => setIsEditing(true)}>
+        <Typography variant="bodyS" className="text-dark-500 hidden sm:block">
           Document name
         </Typography>
         {isEditing ? (
