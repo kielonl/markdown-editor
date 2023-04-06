@@ -18,10 +18,15 @@ const Markdown: React.FC<MarkdownProps> = ({
   const { markdown, setMarkdown } = useContext(MarkdownContext);
 
   return (
-    <div className={twMerge(className, "border-r-2 border-dark-300")}>
+    <div
+      className={twMerge(
+        className,
+        "border-r-2 border-dark-300 dark:border-dark-600"
+      )}
+    >
       <Typography
         variant="headingS"
-        className="bg-dark-200 text-dark-500 p-2 flex flex-row items-center justify-between"
+        className="bg-dark-200 text-dark-500 dark:bg-dark-900 h-[4vh] p-2 flex flex-row items-center justify-between"
       >
         MARKDOWN
         <div
@@ -35,7 +40,7 @@ const Markdown: React.FC<MarkdownProps> = ({
       <textarea
         onChange={(e) => setMarkdown(e.target.value)}
         value={markdown}
-        className="min-h-[85vh] w-full p-2 resize-none focus:outline-none "
+        className="min-h-[90vh] w-full p-2 resize-none focus:outline-none dark:bg-dark-1000"
       />
     </div>
   );

@@ -15,6 +15,28 @@
   margin: 1rem;
 }
 
+.react-markdown-dark h1,
+.react-markdown-dark h2,
+.react-markdown-dark h3,
+.react-markdown-dark h4,
+.react-markdown-dark h5,
+.react-markdown-dark h6,
+.react-markdown-dark blockquote,
+.react-markdown-dark pre {
+  color: #ffffff;
+}
+
+.react-markdown-dark p,
+.react-markdown-dark li,
+.react-markdown-dark ol,
+.react-markdown-dark ul {
+  color: #c1c4cb;
+}
+
+.react-markdown:last-child {
+  margin-bottom: 5rem;
+}
+
 .react-markdown h1 {
   font-size: 32px;
   font-weight: 700;
@@ -85,10 +107,23 @@
   font-weight: 700;
 }
 
+.react-markdown-dark blockquote {
+  background: #2b2d31;
+}
+
+.react-markdown-dark blockquote p {
+  color: #ffffff;
+}
+
 .react-markdown pre {
   background: #f5f5f5;
   border-radius: 4px;
   padding: 1em;
   font-size: 14px;
   font-weight: 400;
+}
+
+.react-markdown-dark pre {
+  background: #2b2d31;
+  color: #ffffff;
 }
