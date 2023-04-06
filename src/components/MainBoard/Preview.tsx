@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import ReactMarkdown from "react-markdown";
 import { MarkdownContext } from "../../contexts/MarkdownContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import Icon from "../Icon";
 import Typography from "../Typography";
 import "./markdown-styles.css";
@@ -17,12 +18,13 @@ const Preview: React.FC<PreviewProps> = ({
   setShowPreview,
 }) => {
   const markdown = useContext(MarkdownContext).markdown;
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div className={className}>
       <Typography
         variant="headingS"
-        className="bg-dark-200 text-dark-500 p-2 flex flex-row items-center justify-between"
+        className="bg-dark-200 text-dark-500 dark:bg-dark-900 h-[4vh] p-2 flex flex-row items-center justify-between"
       >
         PREVIEW
         <div onClick={() => setShowPreview(!showPreview)}>
@@ -30,8 +32,13 @@ const Preview: React.FC<PreviewProps> = ({
         </div>
       </Typography>
 
-      <div className="max-h-[85vh] break-words overflow-auto container mx-auto">
-        <ReactMarkdown children={markdown} className={"react-markdown"} />
+      <div className="min-h-[90vh] h-full break-words overflow-auto container mx-auto dark:bg-dark-1000">
+        <ReactMarkdown
+          children={markdown}
+          className={`react-markdown ${
+            theme === "dark" && "react-markdown-dark"
+          }`}
+        />
       </div>
     </div>
   );
