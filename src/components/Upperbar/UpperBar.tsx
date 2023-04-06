@@ -2,22 +2,24 @@ import Button from "../Button";
 import EditDocName from "./EditDocName";
 import Icon from "../Icon";
 import Typography from "../Typography";
-import { twMerge } from "tailwind-merge";
-import ThemeToggler from "../ThemeToggler";
+import SidebarIcon from "../Sidebar/SidebarIcon";
 
 interface UpperBarProps {
-  className?: string;
+  toggleSidebar: () => void;
+  showSidebar: boolean;
 }
 
-const UpperBar: React.FC<UpperBarProps> = ({ className }) => {
+const UpperBar: React.FC<UpperBarProps> = ({ toggleSidebar, showSidebar }) => {
   return (
-    <div
-      className={twMerge(
-        "w-full h-[6vh] bg-dark-800 flex flex-row items-center gap-2",
-        className
-      )}
-    >
-      <Icon.Logo className="mx-4 hidden sm:block" />
+    <div className="w-full h-[6vh] bg-dark-800 flex flex-row items-center gap-2">
+      <SidebarIcon
+        className="px-4 bg-dark-700"
+        onClick={toggleSidebar}
+        active={showSidebar}
+      />
+      <Icon.Logo
+        className={`mx-4 hidden sm:block ${showSidebar && "sm:hidden"}`}
+      />
       <EditDocName />
       <div className="flex-1"></div>
       <Icon.Delete />
