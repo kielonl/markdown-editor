@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useContext } from "react";
 import ReactMarkdown from "react-markdown";
 import { MarkdownContext } from "../../contexts/MarkdownContext";
@@ -35,9 +36,9 @@ const Preview: React.FC<PreviewProps> = ({
       <div className="min-h-[90vh] h-full break-words overflow-auto container mx-auto dark:bg-dark-1000">
         <ReactMarkdown
           children={markdown}
-          className={`react-markdown ${
-            theme === "dark" && "react-markdown-dark"
-          }`}
+          className={classNames("react-markdown", {
+            "react-markdown-dark": theme === "dark",
+          })}
         />
       </div>
     </div>
