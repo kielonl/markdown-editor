@@ -13,7 +13,7 @@ const App = () => {
     <ThemeContextProvider>
       <MarkdownContextProvider>
         <div className="h-full w-full dark:bg-dark-1000">
-          <Sidebar className={classNames({ "ml-52": showSidebar })} />
+          <Sidebar className={classNames({ "-ml-52": !showSidebar })} />
           <div
             className={classNames("transition-margin-left duration-500", {
               "ml-52": showSidebar,
