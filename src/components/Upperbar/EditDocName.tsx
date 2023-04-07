@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DocumentsContext } from "../../contexts/DocumentsContext";
 import Icon from "../Icon";
 import TextField from "../TextField";
 import Typography from "../Typography";
 
 const EditDocName = () => {
-  const [documentName, setDocumentName] = useState<string>("Document name");
+  const { changeName, documents, currentDocument } =
+    useContext(DocumentsContext);
   const [isEditing, setIsEditing] = useState<boolean>(false);
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDocumentName(e.target.value);
-  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -27,14 +25,14 @@ const EditDocName = () => {
         </Typography>
         {isEditing ? (
           <TextField
-            value={documentName}
-            onChange={handleNameChange}
+            value={documents[currentDocument].name}
+            onChange={(e) => changeName(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={() => setIsEditing(false)}
           />
         ) : (
           <Typography variant="headingM" className="text-dark-100">
-            {documentName}
+            {documents[currentDocument].name}
           </Typography>
         )}
       </div>

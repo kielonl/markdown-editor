@@ -3,7 +3,7 @@ import { useState } from "react";
 import MainBoard from "./components/MainBoard/MainBoard";
 import Sidebar from "./components/Sidebar/Sidebar";
 import UpperBar from "./components/Upperbar/UpperBar";
-import MarkdownContextProvider from "./contexts/MarkdownContextProvider";
+import DocumentsContextProvider from "./contexts/DocumentsContextProvider";
 import ThemeContextProvider from "./contexts/ThemeContextProvider";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <ThemeContextProvider>
-      <MarkdownContextProvider>
+      <DocumentsContextProvider>
         <div className="h-full w-full dark:bg-dark-1000">
           <Sidebar className={classNames({ "-ml-52": !showSidebar })} />
           <div
@@ -26,7 +26,7 @@ const App = () => {
             <MainBoard />
           </div>
         </div>
-      </MarkdownContextProvider>
+      </DocumentsContextProvider>
     </ThemeContextProvider>
   );
 };

@@ -3,6 +3,8 @@ import EditDocName from "./EditDocName";
 import Icon from "../Icon";
 import Typography from "../Typography";
 import SidebarIcon from "../Sidebar/SidebarIcon";
+import SaveChanges from "../FunctionButtons/SaveChanges";
+import DeleteDocument from "../FunctionButtons/DeleteDocument";
 
 interface UpperBarProps {
   toggleSidebar: () => void;
@@ -22,16 +24,8 @@ const UpperBar: React.FC<UpperBarProps> = ({ toggleSidebar, showSidebar }) => {
       />
       <EditDocName />
       <div className="flex-1"></div>
-      <Icon.Delete />
-      <Button
-        icon={<Icon.Save />}
-        size={"p-2 sm:px-3 sm:py-1"}
-        className="mx-2"
-      >
-        <Typography variant="headingM" className="hidden sm:block text-white">
-          Save Changes
-        </Typography>
-      </Button>
+      <DeleteDocument />
+      <SaveChanges />
     </div>
   );
 };

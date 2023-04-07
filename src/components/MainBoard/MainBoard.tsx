@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { useState } from "react";
 import Markdown from "./Markdown";
 import Preview from "./Preview";
@@ -9,16 +8,12 @@ const MainBoard = () => {
   return (
     <div className="max-h-full max-w-full flex flex-row ">
       <Markdown
-        className={classNames("w-full sm:w-[50%]", {
-          hidden: showPreview,
-        })}
+        className={`${showPreview ? "hidden" : "w-full sm:w-[50%]"}`}
         showPreview={showPreview}
         setShowPreview={setShowPreview}
       />
       <Preview
-        className={classNames("w-full sm:w-[50%]", {
-          hidden: !showPreview,
-        })}
+        className={`${showPreview ? "w-full " : "sm:w-[50%] hidden sm:block"}`}
         showPreview={showPreview}
         setShowPreview={setShowPreview}
       />
