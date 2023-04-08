@@ -1,15 +1,12 @@
 import { useState } from "react";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Icon from "../Icon";
 import TextField from "../TextField";
 import Typography from "../Typography";
 
 const EditDocName = () => {
-  const [documentName, setDocumentName] = useState<string>("Document name");
+  const { renameDocument, document } = DocumentsUtils();
   const [isEditing, setIsEditing] = useState<boolean>(false);
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDocumentName(e.target.value);
-  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -27,14 +24,14 @@ const EditDocName = () => {
         </Typography>
         {isEditing ? (
           <TextField
-            value={documentName}
-            onChange={handleNameChange}
+            value={document.name}
+            onChange={(e) => renameDocument(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={() => setIsEditing(false)}
           />
         ) : (
           <Typography variant="headingM" className="text-dark-100">
-            {documentName}
+            {document.name}
           </Typography>
         )}
       </div>

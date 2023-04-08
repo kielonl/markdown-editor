@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { useContext } from "react";
 import ReactMarkdown from "react-markdown";
-import { MarkdownContext } from "../../contexts/MarkdownContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Icon from "../Icon";
 import Typography from "../Typography";
 import "./markdown-styles.css";
@@ -18,7 +18,8 @@ const Preview: React.FC<PreviewProps> = ({
   showPreview,
   setShowPreview,
 }) => {
-  const markdown = useContext(MarkdownContext).markdown;
+  const { document } = DocumentsUtils();
+
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -35,7 +36,7 @@ const Preview: React.FC<PreviewProps> = ({
 
       <div className="min-h-[90vh] h-full break-words overflow-auto container mx-auto dark:bg-dark-1000">
         <ReactMarkdown
-          children={markdown}
+          children={document.content}
           className={classNames("react-markdown", {
             "react-markdown-dark": theme === "dark",
           })}

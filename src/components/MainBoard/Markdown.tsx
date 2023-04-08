@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { twMerge } from "tailwind-merge";
-import { MarkdownContext } from "../../contexts/MarkdownContext";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Icon from "../Icon";
 import Typography from "../Typography";
 
@@ -15,7 +14,7 @@ const Markdown: React.FC<MarkdownProps> = ({
   showPreview,
   setShowPreview,
 }) => {
-  const { markdown, setMarkdown } = useContext(MarkdownContext);
+  const { document, updateDocument } = DocumentsUtils();
 
   return (
     <div
@@ -38,9 +37,9 @@ const Markdown: React.FC<MarkdownProps> = ({
       </Typography>
 
       <textarea
-        onChange={(e) => setMarkdown(e.target.value)}
-        value={markdown}
-        className="min-h-[90vh] w-full p-2 resize-none focus:outline-none dark:bg-dark-1000"
+        onChange={(e) => updateDocument(e.target.value)}
+        value={document.content}
+        className="min-h-[90vh] w-full p-2 resize-none focus:outline-none dark:bg-dark-1000 dark:text-white"
       />
     </div>
   );
