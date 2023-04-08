@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
-import { DocumentsContext } from "../../contexts/DocumentsContext";
+import { useState } from "react";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Icon from "../Icon";
 import TextField from "../TextField";
 import Typography from "../Typography";
 
 const EditDocName = () => {
-  const { changeName, documents, currentDocument } =
-    useContext(DocumentsContext);
+  const { renameDocument, document } = DocumentsUtils();
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -25,14 +24,14 @@ const EditDocName = () => {
         </Typography>
         {isEditing ? (
           <TextField
-            value={documents[currentDocument].name}
-            onChange={(e) => changeName(e.target.value)}
+            value={document.name}
+            onChange={(e) => renameDocument(e.target.value)}
             onKeyDown={handleKeyDown}
             onBlur={() => setIsEditing(false)}
           />
         ) : (
           <Typography variant="headingM" className="text-dark-100">
-            {documents[currentDocument].name}
+            {document.name}
           </Typography>
         )}
       </div>

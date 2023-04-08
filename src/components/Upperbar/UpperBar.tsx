@@ -1,7 +1,5 @@
-import Button from "../Button";
 import EditDocName from "./EditDocName";
 import Icon from "../Icon";
-import Typography from "../Typography";
 import SidebarIcon from "../Sidebar/SidebarIcon";
 import SaveChanges from "../FunctionButtons/SaveChanges";
 import DeleteDocument from "../FunctionButtons/DeleteDocument";

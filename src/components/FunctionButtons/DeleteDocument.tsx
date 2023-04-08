@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { DocumentsContext } from "../../contexts/DocumentsContext";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Icon from "../Icon";
 
 const DeleteDocument = () => {
-  const { deleteDocument } = useContext(DocumentsContext);
+  // const { deleteDocument } = useContext(DocumentsContext);
+  const { deleteDocument } = DocumentsUtils();
   return (
-    <div onClick={() => deleteDocument()}>
+    <div onClick={deleteDocument}>
       <Icon.Delete />
     </div>
   );

@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { DocumentsContext } from "../../contexts/DocumentsContext";
+import { DocumentsUtils } from "../../utils/DocumentsUtils";
 import Button from "../Button";
 import Icon from "../Icon";
 import Typography from "../Typography";
 
 const SaveChanges = () => {
-  const { saveChanges } = useContext(DocumentsContext);
+  const { saveChanges } = DocumentsUtils();
 
   return (
     <Button
